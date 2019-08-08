@@ -1,0 +1,127 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<script src="js/regex_email.js"></script>
+<header th:fragment="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="#">ReserVago</a>
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Hoteles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Habitaciones</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Reservas</a>
+                </li>
+            </ul>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#inicio_ses">Login</button>
+        </div>
+    </nav>
+    
+    <!-- Modal Login -->
+<div class="modal fade" id="inicio_ses" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Inicio de sesión</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="input_email">Email</label>
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="ejemplo@ejemplo.com" onfocus="checkEmail()" required>
+                        <span id="si"></span><span id="no" style="color: red"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="input_pass">Contraseña</label>
+                        <input type="password" class="form-control" id="pass" placeholder="Contraseña" required>
+                    </div>
+                    <p class="text-left">¿No estás registrado?
+                        <!-- Button trigger modal -->
+                        <button type="button" class="font-weight-bold btn btn-info" data-toggle="modal" data-target=".registro-modal-lg">Registrate</button>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Salir</button>
+                    <button type="submit" class="btn btn-success">Acceder</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Modal Login -->
+
+<!-- Modal Registro -->
+<div class="modal fade registro-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Registro de usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="imput_nombre">Nombre*</label>
+                        <input type="text" class="form-control" id="nombre" aria-describedby="Nombre" placeholder="Perico" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="input_apellidos">Apellidos*</label>
+                        <input type="text" class="form-control" id="apellidos" aria-describedby="Apellidos" placeholder="de los Palotes" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="input_dni">DNI - NIF*</label>
+                        <input type="text" class="form-control" id="dni" aria-describedby="DNI" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="input_email">Email*</label>
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="ejemplo@ejemplo.com" onfocus="checkEmail()" required>
+                        <span id="si"></span><span id="no" style="color: red"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="input_pass">Contraseña*</label>
+                        <input type="password" class="form-control" id="pass" placeholder="Contraseña" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="input_pass">Repite contraseña*</label>
+                        <input type="password" class="form-control" id="pass2" placeholder="" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="input_direccion">Dirección</label>
+                        <input type="text" class="form-control" id="direccion" aria-describedby="Direccion" placeholder="C/ La Piruleta, 2">
+                    </div>
+                    <div class="form-group">
+                        <label for="input_CP">Código postal</label>
+                        <input type="number" class="form-control" id="cp" aria-describedby="Codigo_postal" placeholder="00000" maxlength="5">
+                    </div>
+                    <div class="form-group">
+                        <label for="input_ciudad">Ciudad</label>
+                        <input type="text" class="form-control" id="ciudad" aria-describedby="Ciudad" placeholder="Oviedo">
+                    </div>
+                    <p class="font-weight-light text-sm-left">* Los campos son obligatorios</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Salir</button>
+                    <input type="button" value="Registrarse" class="btn btn-success"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Modal Registro -->
+</header>
+
+
+</html>

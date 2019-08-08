@@ -1,0 +1,166 @@
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+	integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+	crossorigin="anonymous"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+	crossorigin="anonymous"></script>
+<script src="js/reservas.js"></script>
+
+<div class="container">
+	<div class="row">
+		<div class="col-8">
+			<h4 class="d-flex justify-content-between aling-content-items mb-3">Datos
+				de reserva</h4>
+			<form>
+				<div class="row">
+					<div class="form-group col">
+						<label for="imput_nombre">Fecha de entrada</label> <input
+							type="date" class="form-control" id="fec_ini"
+							aria-describedby="Nombre" required>
+					</div>
+					<div class="form-group col">
+						<label for="input_apellidos">Fecha de salida</label> <input
+							type="date" class="form-control" id="fec_fin"
+							aria-describedby="Apellidos" required onblur="calcular()">
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group col">
+						<label for="imput_nombre">Adultos</label> <select id="adultos"
+							class="custom-select" onblur="rellenar()">
+							<option selected>Seleccione cantidad</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select>
+					</div>
+					<div class="form-group col">
+						<label for="imput_nombre">Niños (Menores 8 años)</label> <select
+							id="niños" class="custom-select" onblur="rellenar()">
+							<option selected>Seleccione cantidad</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+						</select>
+					</div>
+				</div>
+
+				<hr>
+				<h5 class="d-flex justify-content-between aling-content-items mb-3">Listado
+					de productos</h5>
+
+				<div class="row">
+					<div class="form-group col-3">
+						<label id="prod_nombre" value="Proucto 1">Produto 1</label> <small
+							class="text-muted"> - €</small> <input id="prod_cantidad"
+							type="number" class="form-control" onblur="añadir_prod()">
+					</div>
+					<div class="form-group col-3">
+						<label for="imput_nombre">Produto 1</label> <small
+							class="text-muted"> - €</small> <input type="number"
+							class="form-control" id="producto_1">
+					</div>
+					<div class="form-group col-3">
+						<label for="imput_nombre">Produto 1</label> <small
+							class="text-muted"> - €</small> <input type="number"
+							class="form-control" id="producto_1">
+					</div>
+					<div class="form-group col-3">
+						<label for="imput_nombre">Produto 1</label> <small
+							class="text-muted"> - €</small> <input type="number"
+							class="form-control" id="producto_1">
+					</div>
+					<div class="form-group col-3">
+						<label for="imput_nombre">Produto 1</label> <small
+							class="text-muted"> - €</small> <input type="number"
+							class="form-control" id="producto_1">
+					</div>
+					<div class="form-group col-3">
+						<label for="imput_nombre">Produto 1</label> <small
+							class="text-muted"> - €</small> <input type="number"
+							class="form-control" id="producto_1">
+					</div>
+					<div class="form-group col-3">
+						<label for="imput_nombre">Produto 1</label> <small
+							class="text-muted"> - €</small> <input type="number"
+							class="form-control" id="producto_1">
+					</div>
+					<div class="form-group col-3">
+						<label for="imput_nombre">Produto 1</label> <small
+							class="text-muted"> - €</small> <input type="number"
+							class="form-control" id="producto_1">
+					</div>
+				</div>
+
+				<hr>
+
+				<div>
+					<button type="submit" class="btn btn-success">Reservar</button>
+				</div>
+			</form>
+		</div>
+
+		<!-- Panel derecho -->
+
+		<div class="col-4">
+			<h4 class="d-flex justify-content-between aling-content-items mb-3">Nombre
+				del hotel</h4>
+			<ul class="list-group mb-3">
+				<li
+					class="list-group-item d-flex justify-content-between lh-condensed">
+					<div>
+						<h6 class="my-0">Precio de la habitación</h6>
+						<small id="num_noches" class="text-muted"></small> <small
+							id="num_adultos" class="text-muted"></small> <small
+							id="num_niños" class="text-muted"></small>
+					</div> <span id="precio_hab" class="text-muted">670€</span>
+				</li>
+				<span class="mt-2 mb-2 ml-3 font-weight-bolder">Complementos</span>
+				<li
+					class="list-group-item d-flex justify-content-between lh-condensed">
+					<div>
+						<h6 id="nombre" class="my-0"></h6>
+						<small id="cantidad" class="text-muted"></small>
+					</div> <span class="text-muted">$8</span>
+				</li>
+				<li
+					class="list-group-item d-flex justify-content-between lh-condensed">
+					<div>
+						<h6 class="my-0">Third item</h6>
+						<small class="text-muted">Brief description</small>
+					</div> <span class="text-muted">$5</span>
+				</li>
+				<li class="list-group-item d-flex justify-content-between bg-light">
+					<div class="text-success">
+						<h6 class="my-0">Promo code</h6>
+						<small>EXAMPLECODE</small>
+					</div> <span class="text-success">-$5</span>
+				</li>
+				<li class="list-group-item d-flex justify-content-between"><span>Total
+						(USD)</span> <strong>$20</strong></li>
+			</ul>
+		</div>
+
+	</div>
+</div>
