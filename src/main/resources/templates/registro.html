@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<title>Registro</title>
+<link rel="stylesheet" type="text/css" href="/jsp/css/estilo.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+	<div th:replace="/jsp/includes/header.html::header"></div>
+	
+	<div class="position-relative overflow-hidden text-center bg-light">
+		<div class="col-md-8 p-lg-2 mx-auto my-5">
+			<form th:form="">
+				<div class="form-group">
+					<label for="imput_nombre">Nombre*</label> <input type="text"
+						class="form-control" id="nombre" aria-describedby="Nombre"
+						placeholder="Perico" required>
+				</div>
+				<div class="form-group">
+					<label for="input_apellidos">Apellidos*</label> <input type="text"
+						class="form-control" id="apellidos" aria-describedby="Apellidos"
+						placeholder="de los Palotes" required>
+				</div>
+				<div class="form-group">
+					<label for="input_dni">DNI - NIF*</label> <input type="text"
+						class="form-control" id="dni" aria-describedby="DNI" required>
+				</div>
+				<div class="form-group">
+					<label for="input_email">Email*</label> <input type="email"
+						class="form-control" id="email" aria-describedby="emailHelp"
+						placeholder="ejemplo@ejemplo.com" onfocus="checkEmail()" required>
+					<span id="si"></span><span id="no" style="color: red"></span>
+				</div>
+				<div class="form-group">
+					<label for="input_pass">Contraseña*</label> <input type="password"
+						class="form-control" id="pass" placeholder="Contraseña" required>
+				</div>
+				<div class="form-group">
+					<label for="input_pass">Repite contraseña*</label> <input
+						type="password" class="form-control" id="pass2" placeholder=""
+						required>
+				</div>
+				<div class="form-group">
+					<label for="input_direccion">Dirección</label> <input type="text"
+						class="form-control" id="direccion" aria-describedby="Direccion"
+						placeholder="C/ La Piruleta, 2">
+				</div>
+				<div class="form-group">
+					<label for="input_CP">Código postal</label> <input type="number"
+						class="form-control" id="cp" aria-describedby="Codigo_postal"
+						placeholder="00000" maxlength="5">
+				</div>
+				<div class="form-group">
+					<label for="input_ciudad">Ciudad</label> <input type="text"
+						class="form-control" id="ciudad" aria-describedby="Ciudad"
+						placeholder="Oviedo">
+				</div>
+				<p class="font-weight-light text-sm-left">* Los campos son
+					obligatorios</p>
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Salir</button>
+				<input type="button" value="Registrarse" class="btn btn-success">
+			</form>
+		</div>
+	</div>
+	
+	<div th:replace="/jsp/includes/footer.html::footer"></div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</html>
