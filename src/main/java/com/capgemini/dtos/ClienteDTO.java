@@ -14,6 +14,8 @@ public class ClienteDTO {
 	private String codigoPostal;
 	private String ciudad;
 	private int puntosDescuento;
+	private String role;
+	private String passwd;
 	
 	//private List<ConsumoDTO> consumo;
 	

@@ -2,19 +2,21 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org"> 
 <head>
 <meta charset="utf-8">
-<title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="css/estilo.css">
+<title>Hoteles</title>
+<!-- <link href="/jsp/css/estilo.css" th:href="@{/css/estilo.css}" rel="stylesheet" />  -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> 
 </head>
 
 <body>
-	<div th:include="/jsp/includes/header.html::header"></div>
+	<header th:include="/jsp/includes/header.html::header"></header>
 	
-	<div th:include="/jsp/includes/home.html::home"></div>
+	<section id="home" th:replace="/jsp/includes/home.html::home"></section>
+	<section th:include="/jsp/includes/hoteles.html::hoteles"></section>
 	
-	<div th:include="/jsp/includes/footer.html::footer"></div>
+	<footer th:replace="/jsp/includes/footer.html::footer"></footer>
 </body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> 
 </html>
