@@ -25,9 +25,7 @@ public class AuthenticationUserService implements UserDetailsService {
 
 	@Autowired
 	RestTemplate restTemplate;
-	@Autowired
-	BCryptPasswordEncoder encoder;
-
+	
 	@Override
 	public UserDetails loadUserByUsername(String email) {
 		ClienteDTO cliente = new ClienteDTO();
@@ -37,10 +35,6 @@ public class AuthenticationUserService implements UserDetailsService {
 			String baseUrl = "http://localhost:9876/cliente/login/"+email;
 			URI uri = new URI(baseUrl);
 			cliente = restTemplate.getForObject(uri,ClienteDTO.class);
-			
-			log.info(cliente.getEmail());
-			log.info(cliente.getPasswd());
-			log.info(cliente.getRole());
 		
 			GrantedAuthority authority = new SimpleGrantedAuthority(cliente.getRole());
 			userDetails = (UserDetails)new User(cliente.getEmail(), 
