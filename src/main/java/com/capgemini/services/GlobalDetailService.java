@@ -21,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
-public class UsuarioDetailService implements UserDetailsService {
+public class GlobalDetailService implements UserDetailsService {
 
 	@Autowired
 	RestTemplate restTemplate;
@@ -44,7 +44,7 @@ public class UsuarioDetailService implements UserDetailsService {
 				userDetails = (UserDetails) new User(cliente.getEmail(), cliente.getPasswd(), Arrays.asList(authority));
 			} else {
 				log.info("Entrando en admin");
-
+				log.info(username);
 				String baseUrl = "http://localhost:9876/admin/" + username;
 				URI uri = new URI(baseUrl);
 				adminUser = restTemplate.getForObject(uri, AdminDTO.class);
@@ -63,6 +63,7 @@ public class UsuarioDetailService implements UserDetailsService {
 
 	//TODO: comprobar si entra siempre aqui.
 	private boolean verificarEmail(String cadena) {
+		log.info("validar email:"+cadena);
 		boolean esEmail = false;
 
 		for (char c : cadena.toCharArray()) {

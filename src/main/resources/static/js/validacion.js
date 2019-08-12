@@ -1,11 +1,76 @@
-function checkEmail() {
-	var email = document.getElementById('input_email');
-	var filter = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-	if (!filter.test(email.value)) {
-		document.getElementById('no').innerHTML = "El email introducido no es correcto";
-		return false;
+okpass = false;
+
+function valida_nombre() {
+	var caja = document.getElementById("nombre_apellidos")
+	var expresion = /^[A-Za-zñÑáéíóúÁÉÍÓÚ]+$/
+	if (expresion.test(caja.value) == true) {
+		caja.setCustomValidity("")
 	} else {
-		document.getElementById('si').innerHTML = "";
-		return true;
+		if (expresion.test(caja.value) == false) {
+			caja.setCustomValidity("Campo incorrecto")
+		}
 	}
+}
+
+function valida_mail() {
+	var caja = document.getElementById("email")
+	var expresion = /^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$/
+	if (expresion.test(caja.value) == false) {
+		caja.setCustomValidity("Email No Válido")
+	} else {
+		caja.setCustomValidity("")
+	}
+}
+
+function nif(dni) {
+	var numero
+	var letr
+	var letra
+	var expresion_regular_dni
+
+	expresion_regular_dni = /^\d{8}[a-zA-Z]$/;
+
+	if (expresion_regular_dni.test(dni) == true) {
+		numero = dni.substr(0, dni.length - 1);
+		letr = dni.substr(dni.length - 1, 1);
+		numero = numero % 23;
+		letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
+		letra = letra.substring(numero, numero + 1);
+		if (letra != letr.toUpperCase()) {
+			alert('Dni erroneo, la letra del NIF no se corresponde');
+		} else {
+			alert('Dni correcto');
+		}
+	} else {
+		alert('Dni erroneo, formato no válido');
+	}
+}
+
+function borrar() {
+	document.getElementById("info1").innerHTML = ""
+	document.getElementById("info2").innerHTML = ""
+}
+
+function valida_pass() {
+	var caja = document.getElementById("pass")
+	var expresion = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,32}$/
+	if (expresion.test(caja.value) == false) {
+		caja.setCustomValidity("Contraseña incorrecta")
+	} else {
+		caja.setCustomValidity("")
+	}
+}
+
+function comprueba_pass() {
+	pass = document.getElementById("pass").value
+	pass2 = document.getElementById("pass2").value
+	if (pass != pass2) {
+		document.getElementById("info1").innerHTML = "Contraseña no válida"
+	} else {
+		okpass = true
+	}
+}
+
+function validarForm() {
+	return okpass
 }
