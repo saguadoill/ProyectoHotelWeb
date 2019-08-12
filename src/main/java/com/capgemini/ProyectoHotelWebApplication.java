@@ -8,7 +8,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-@EnableWebSecurity
 public class ProyectoHotelWebApplication {
 
 	public static void main(String[] args) {
