@@ -16,10 +16,13 @@ public class RegisterFormDTO {
 	private String nombre;
 	
 	@NotNull
-	private String apellido;
+	private String apellidos;
 	
 	@NotNull
-	private String email;
+	private String regEmail;
+	
+	private String regPasswd;
+	private String regPasswd2;
 	
 	private String direccion;
 	private String codigoPostal;

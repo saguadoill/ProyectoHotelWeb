@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
-public class GlobalDetailService implements UserDetailsService {
+public class GlobalUserDetailService implements UserDetailsService {
 
 	@Autowired
 	RestTemplate restTemplate;

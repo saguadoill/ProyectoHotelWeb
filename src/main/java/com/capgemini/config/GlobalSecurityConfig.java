@@ -10,7 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.capgemini.services.GlobalDetailService;
+import com.capgemini.services.GlobalUserDetailService;
 
 
 @Configuration
@@ -18,7 +18,7 @@ import com.capgemini.services.GlobalDetailService;
 public class GlobalSecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	@Autowired
-	GlobalDetailService usuarioAuth;
+	GlobalUserDetailService usuarioAuth;
 
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception {

@@ -74,3 +74,9 @@ function comprueba_pass() {
 function validarForm() {
 	return okpass
 }
+
+function() {
+	//recirect 2s o 2000ms
+}
+	
+}
