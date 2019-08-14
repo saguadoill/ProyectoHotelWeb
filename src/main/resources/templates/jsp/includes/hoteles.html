@@ -2,46 +2,22 @@
 <div class="album py-5 bg-light" th:fragment="hoteles">
 	<div class="container">
 		<div class="row">
-		
-			<div class="col-md-4">
-				<div class="card mb-4 shadow-sm">
-					<img width="100%" alt="Responsive image" height="225" th:src="@{/images/gran_melia.jpg}"/>
-					<div class="card-body" width="100%" height="225">
-						<div class="d-flex justify-content-between align-items-center">
-							<div class="btn-group">
-								<button type="button" class="btn btn-sm btn-outline-secondary">Ver</button>
+			<th:block th:each="hotel : ${hoteles}">
+				<div class="col-md-4">
+					<div class="card mb-4 shadow-sm">
+						<img width="100%" alt="Responsive image" height="225"
+							th:src="@{/images/gran_melia.jpg}" />
+						<div class="card-body" width="100%" height="225">
+							<div class="d-flex justify-content-between align-items-center">
+								<p class="text-muted" th:text="${hotel.getNombre()}"></p>
+								<div class="btn-group">
+									<button type="button" class="btn btn-sm btn-outline-secondary">Ver</button>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			
-			<div class="col-md-4">
-				<div class="card mb-4 shadow-sm">
-					<img width="100%" alt="Responsive image" height="225" th:src="@{/images/palacio_retiro.jpg}"/>
-					<div class="card-body" width="100%" height="225">
-						<div class="d-flex justify-content-between align-items-center">
-							<div class="btn-group">
-								<button type="button" class="btn btn-sm btn-outline-secondary">Ver</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-md-4">
-				<div class="card mb-4 shadow-sm">
-					<img width="100%" alt="Responsive image" height="225" th:src="@{/images/villa_magna.jpg}"/>
-					<div class="card-body" width="100%" height="225">
-						<div class="d-flex justify-content-between align-items-center">
-							<div class="btn-group">
-								<button type="button" class="btn btn-sm btn-outline-secondary">Ver</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
+			</th:block>
 		</div>
 	</div>
 </div>

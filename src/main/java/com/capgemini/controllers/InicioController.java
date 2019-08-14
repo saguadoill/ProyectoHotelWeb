@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.capgemini.dtos.ClienteDTO;
 import com.capgemini.services.HabitacionService;
+import com.capgemini.services.HotelesService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,9 +20,13 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class InicioController {
 	
+	@Autowired
+	HotelesService hotelesService;
+	
 	@RequestMapping(value = "/inicio", method = RequestMethod.GET)
 	public ModelAndView paginaInicio(Principal principal,ModelAndView model) {
 		model.setViewName("inicio");
+		model.addObject("hoteles", hotelesService.getAll()); 
 		if(principal == null) {
 			log.info("Usuario no autenticado");
 		}else {
@@ -47,7 +52,7 @@ public class InicioController {
 		if(hasUserRole) {
 			model.setViewName("redirect:/inicio");
 		}else {
-			model.setViewName("redirect:/inicio");
+			model.setViewName("redirect:/admin/inicio");
 		}
 		return model;
 	}

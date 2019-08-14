@@ -7,67 +7,80 @@
 <script type="text/javascript" src="../static/js/validacion.js"></script>
 </head>
 <body>
-	<div th:replace="/jsp/includes/header.html::header"></div>
-	
-	<div class="position-relative overflow-hidden text-center bg-light">
-		<div class="col-md-8 p-lg-2 mx-auto my-5">
-					<form th:object="${clienteNuevo}" th:action="@{/register}" id="registerForm" method="POST">
-				<div class="form-group">
-					<label for="input_nombre">Nombre*</label> <input th:field="*{nombre}" type="text"
-						class="form-control" aria-describedby="Nombre"
-						placeholder="Nombre" onblur="valida_nombre_apellidos(this)" required>
+	<div th:include="/jsp/includes/header.html::header"></div>
+
+	<div class="position-relative overflow-hidden mt-5">
+		<div class="col-md-6 p-lg-2 mx-auto my-5">
+			<h2 class="text-center">Formulario de registro</h2>
+			<hr>
+			<br>
+			<form th:object="${clienteNuevo}" th:action="@{/register}" id="registerForm" method="POST">
+
+				<div class="row">
+					<div class="form-group col-6">
+						<label for="imput_nombre">Nombre*</label> 
+						<input th:field="*{nombre}" type="text" class="form-control" placeholder="Perico" onblur="valida_nombre_apellidos(this)" required>
+					</div>
+					<div class="form-group col-6">
+						<label for="input_apellidos">Apellidos*</label> 
+						<input th:field="*{apellido}" type="text" class="form-control" placeholder="de los Palotes" onblur="valida_nombre_apellidos(this)" required>
+					</div>
 				</div>
-				<div class="form-group">
-					<label for="input_apellidos">Apellidos*</label> <input th:field="*{apellido}" type="text"
-						class="form-control" aria-describedby="Apellidos"
-						placeholder="Apellidos" onblur="valida_nombre_apellidos(this)" required>
+
+				<div class="row">
+					<div class="form-group col-4">
+						<label for="input_dni">DNI - NIF*</label> 
+						<input th:field="*{dni}" type="text" class="form-control" maxlength="9" onblur="nif(this)" required>
+					</div>
+					<div class="form-group col-8">
+						<label for="input_email">Email*</label> 
+						<input th:field="*{email}" type="email" class="form-control" placeholder="ejemplo@ejemplo.com" onblur="valida_mail()" required> 
+						<span id="si"></span><span id="no" style="color: red"></span>
+					</div>
 				</div>
-				<div class="form-group">
-					<label for="input_dni">DNI - NIF*</label> <input th:field="*{dni}" type="text"
-						class="form-control" aria-describedby="DNI" required>
+
+				<div class="row">
+					<div class="form-group col-6">
+						<label for="input_pass">Contraseña*</label> 
+						<input th:field="*{passwd}" type="password" class="form-control" placeholder="Contraseña" onblur="valida_pass()" required>
+					</div>
+					<div class="form-group col-6">
+						<label for="input_pass">Repite contraseña*</label> 
+						<input id= "pass2" type="password" class="form-control" placeholder="" onblur="comprueba_pass()" required>
+					</div>
 				</div>
+
 				<div class="form-group">
-					<label for="input_email">Email*</label> <input th:field="*{email}" type="email"
-						class="form-control" aria-describedby="emailHelp"
-						placeholder="ejemplo@ejemplo.com" onfocus="checkEmail()" required>
-					<span id="si"></span><span id="no" style="color: red"></span>
+					<label for="input_direccion">Dirección</label> 
+					<input th:field="*{direccion}" type="text" class="form-control" placeholder="C/ La Piruleta, 2">
 				</div>
-				<div class="form-group">
-					<label for="input_pass">Contraseña*</label> <input th:field="*{passwd}" type="password"
-						class="form-control" placeholder="Contraseña" required>
+
+				<div class="row">
+					<div class="form-group col-4">
+						<label for="input_CP">Código postal</label> 
+						<input th:field="*{codigoPostal}" type="number" class="form-control" placeholder="00000" maxlength="5" max="99999">
+					</div>
+					<div class="form-group col-4">
+						<label for="input_ciudad">Ciudad</label> 
+						<input th:field="*{ciudad}" type="text" class="form-control" placeholder="Oviedo">
+					</div>
+					
 				</div>
-				<div class="form-group">
-					<label for="input_pass">Repite contraseña*</label> <input
-						type="password" id="pass2" class="form-control" placeholder=""
-						required>
+
+				<p class="font-weight-light text-sm-left">* Los campos son obligatorios</p>
+				
+				<div class="text-center">
+					<input type="submit" value="Registrarse" class="btn btn-lg btn btn-outline-success m-3" onsubmit="validarForm()">
 				</div>
-				<div class="form-group">
-					<label for="input_direccion">Dirección</label> <input th:field="*{direccion}" type="text"
-						class="form-control" id="direccion" aria-describedby="Direccion"
-						placeholder="C/ La Piruleta, 2">
-				</div>
-				<div class="form-group">
-					<label for="input_CP">Código postal</label> <input th:field="*{codigoPostal}" type="number"
-						class="form-control" aria-describedby="Codigo_postal"
-						placeholder="00000" maxlength="5">
-				</div>
-				<div class="form-group">
-					<label for="input_ciudad">Ciudad</label> <input th:field="*{ciudad}" type="text"
-						class="form-control" aria-describedby="Ciudad"
-						placeholder="Oviedo">
-				</div>
-				<p class="font-weight-light text-sm-left">* Los campos son
-					obligatorios</p>
-				<input type="submit" value="Registrarse" class="btn btn-success">
 			</form>
 			<p style="color: green; font-size: 12px;" th:if="${msg != null}" th:text="${msg} ?: ''"></p>
 		</div>
 	</div>
-	
+
 	<div th:replace="/jsp/includes/footer.html::footer"></div>
 </body>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </html>
