@@ -1,6 +1,7 @@
 package com.capgemini.controllers;
 
 import java.net.URISyntaxException;
+import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,47 +17,40 @@ import com.capgemini.dtos.ClienteDTO;
 import com.capgemini.dtos.RegisterFormDTO;
 import com.capgemini.services.RegisterService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
+@Slf4j
 public class RegistroController {
 	
 	@Autowired
 	RegisterService registerService;
+	
+	
+	@RequestMapping(value = "/registro", method = RequestMethod.GET)
+	public ModelAndView paginaRegistro(Principal usuarioLogado, ModelAndView model) {
+
+		ClienteDTO clienteNuevo = new ClienteDTO();
+		model.addObject("clienteNuevo",clienteNuevo);
+		
+		model.setViewName("registro");
+		return model;
+	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registerForm(ModelAndView model, @ModelAttribute(name="registerForm") RegisterFormDTO registerForm) throws URISyntaxException {
+	public ModelAndView registerForm(ModelAndView model, @ModelAttribute ClienteDTO nuevoCliente) throws URISyntaxException {
+		
+			log.info(nuevoCliente.toString());
 		
 			String respuesta = "ko";
-		
-		if (registerForm.getRegPasswd().equals(registerForm.getRegPasswd2())) {
-			
-			ClienteDTO clienteDTO = new ClienteDTO();
-			
-			clienteDTO.setNombre(registerForm.getNombre());
-			clienteDTO.setApellido(registerForm.getApellidos());
-			clienteDTO.setDni(registerForm.getDni());
-			clienteDTO.setEmail(registerForm.getRegEmail());
-			clienteDTO.setPasswd(registerForm.getRegPasswd());
-			
-			if (registerForm.getCiudad() != null) {
-				clienteDTO.setCiudad(registerForm.getCiudad());
-			}
-			
-			if (registerForm.getDireccion() != null) {
-				clienteDTO.setDireccion(registerForm.getDireccion());
-			}
-			
-			if (registerForm.getCodigoPostal() != null) {
-				clienteDTO.setCodigoPostal(registerForm.getCodigoPostal());
-			}
-			
-			HttpStatus status = registerService.validarRegistro(clienteDTO);
+
+			HttpStatus status = registerService.validarRegistro(nuevoCliente);
 			
 			if (status == HttpStatus.CREATED) {
-				respuesta = "ok";
+				respuesta = " //pagina intermedia";
 			} 
-		}
 	
-		return respuesta;
+		return model;
 		
 	}
 	

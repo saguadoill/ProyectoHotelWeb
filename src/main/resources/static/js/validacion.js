@@ -1,8 +1,8 @@
 okpass = false;
 
-function valida_nombre() {
-	var caja = document.getElementById("nombre_apellidos")
-	var expresion = /^[A-Za-zñÑáéíóúÁÉÍÓÚ]+$/
+function valida_nombre_apellidos(name) {
+	var caja = name
+	var expresion = /^[a-zA-ZáéíóúÁÉÍÓÚ \.]*$/
 	if (expresion.test(caja.value) == true) {
 		caja.setCustomValidity("")
 	} else {
@@ -37,7 +37,7 @@ function nif(dni) {
 		letra = 'TRWAGMYFPDXBNJZSQVHLCKET';
 		letra = letra.substring(numero, numero + 1);
 		if (letra != letr.toUpperCase()) {
-			alert('Dni erroneo, la letra del NIF no se corresponde');
+			alert('Dni erroneo, la letra del DNI no se corresponde');
 		} else {
 			alert('Dni correcto');
 		}
@@ -52,7 +52,7 @@ function borrar() {
 }
 
 function valida_pass() {
-	var caja = document.getElementById("pass")
+	var caja = document.getElementById("passwd")
 	var expresion = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,32}$/
 	if (expresion.test(caja.value) == false) {
 		caja.setCustomValidity("Contraseña incorrecta")
@@ -73,10 +73,4 @@ function comprueba_pass() {
 
 function validarForm() {
 	return okpass
-}
-
-function() {
-	//recirect 2s o 2000ms
-}
-	
 }
