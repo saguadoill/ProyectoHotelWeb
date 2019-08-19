@@ -27,10 +27,12 @@ public class InicioController {
 	public ModelAndView paginaInicio(Principal principal,ModelAndView model) {
 		model.setViewName("inicio");
 		model.addObject("hoteles", hotelesService.getAll()); 
+		
 		if(principal == null) {
+			model.addObject("usuario", null);
 			log.info("Usuario no autenticado");
 		}else {
-			model.addObject("nobmre", principal.getName());
+			model.addObject("usuario", principal.getName());
 			log.info("Usuario "+principal.getName()+" autenticado");
 		}
 		return model;

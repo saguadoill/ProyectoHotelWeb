@@ -1,12 +1,11 @@
 package com.capgemini.dtos;
 
 import java.time.LocalDate;
-
-import com.capgemini.LocalDateSerializer;
 import com.capgemini.utils.LocalDateDeserializer;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
 import lombok.Data;
 
