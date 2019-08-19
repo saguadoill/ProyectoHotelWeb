@@ -12,6 +12,7 @@ public class HotelDTO {
 	private String categoria;
 	private String zona;
 	private String direccion;
+	private String imagen;
 	private List<HabitacionDTO> listaHabitaciones;
 	
 }
