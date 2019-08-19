@@ -36,22 +36,23 @@ public class RegistroController {
 		model.setViewName("registro");
 		return model;
 	}
-
+	
+	@RequestMapping(value = "/felicidades", method = RequestMethod.GET)
+	public ModelAndView paginaCliente(Principal usuarioLogado, ModelAndView model) {
+		model.setViewName("felicidades");
+		return model;
+	}
+	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public ModelAndView registerForm(ModelAndView model, @ModelAttribute ClienteDTO nuevoCliente) throws URISyntaxException {
 		
-			log.info(nuevoCliente.toString());
-		
-			String respuesta = "ko";
-
 			HttpStatus status = registerService.validarRegistro(nuevoCliente);
 			
 			if (status == HttpStatus.CREATED) {
-				respuesta = " //pagina intermedia";
+				model.setViewName("redirect:felicidades");
 			} 
 	
-		return model;
-		
+		return model;	
 	}
 	
 }

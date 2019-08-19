@@ -2,3 +2,23 @@
 	background-image: url(../images/home_mountain.jpg);
 	color: #fff;
 }
+
+#wrapper_congratz {
+    height: 100vh;
+    width: auto;
+    position: relative;
+    background-color: rgb(205, 243, 255);
+}
+
+#content {
+    width: 15em;
+    height: 16em;
+    background-color: rgb(255, 255, 255);
+    color: rgb(46, 161, 0);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 40px;
+    border: 2px solid rgb(133, 133, 133);
+}

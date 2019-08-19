@@ -1,5 +1,6 @@
 $(document).ready(function() {
-
+	
+	/*
 	$('#registerForm').on('submit', function() {
 		event.preventDefault();
 		 $.ajax({
@@ -30,5 +31,10 @@ $(document).ready(function() {
 	            }
 	        })
 	})
+	*/
+	
+	
+	
+	
 
 })
