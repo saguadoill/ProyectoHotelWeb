@@ -9,9 +9,9 @@
 							th:src="'data:image/png;base64,'+${hotel.imagen}"/>
 						<div class="card-body" width="100%" height="225">
 							<div class="d-flex justify-content-between align-items-center">
-								<p class="text-muted" th:text="${hotel.getNombre()}"></p>
+								<p class="text-muted" th:text="${hotel.nombre}"></p>
 								<div class="btn-group">
-									<button type="button" class="btn btn-sm btn-outline-secondary">Ver</button>
+									<a href="'/hotel/'+${hotel.id}" type="button" class="btn btn-sm btn-outline-secondary">Ver</button>
 								</div>
 							</div>
 						</div>

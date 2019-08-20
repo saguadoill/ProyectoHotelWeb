@@ -38,7 +38,12 @@ public class InicioController {
 		return model;
 	}
 	
-
+	@RequestMapping(value = "/habitaciones", method = RequestMethod.GET)
+	public ModelAndView habitaciones(Principal usuarioLogado, ModelAndView model) {
+		model.setViewName("habitaciones");
+		return model;
+	}
+	
 	@RequestMapping(value = "/cliente", method = RequestMethod.GET)
 	public ModelAndView paginaCliente(Principal usuarioLogado, ModelAndView model) {
 		model.setViewName("cliente");

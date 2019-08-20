@@ -4,6 +4,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +22,15 @@ public class HotelesController {
 	public List<HotelDTO> getAllHoteles() throws URISyntaxException {
 		
 		List<HotelDTO> hoteles = hotelesService.getAll();
+		
+		return hoteles;
+		
+	}
+	
+	@RequestMapping(value = "/hotel/{id}", method = RequestMethod.GET)
+	public HotelDTO getHotel(@PathVariable(value="id") int id) {
+		
+		HotelDTO hoteles = hotelesService.getHotel(id);
 		
 		return hoteles;
 		
