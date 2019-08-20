@@ -43,7 +43,7 @@ public class RegistroController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	@RequestMapping(value = "/registro", method = RequestMethod.POST)
 	public ModelAndView registerForm(ModelAndView model, @ModelAttribute ClienteDTO nuevoCliente) throws URISyntaxException {
 		
 			HttpStatus status = registerService.validarRegistro(nuevoCliente);

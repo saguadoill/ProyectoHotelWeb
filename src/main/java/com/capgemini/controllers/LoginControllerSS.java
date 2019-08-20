@@ -19,7 +19,7 @@ public class LoginControllerSS {
 	
 	@RequestMapping(value = "/403page", method = RequestMethod.GET)
 	public ModelAndView paginaErrorInicio(Principal principal,ModelAndView model) {
-		model.setViewName("acceso_denegado");
+		model.setViewName("error");
 		return model;
 	}
 

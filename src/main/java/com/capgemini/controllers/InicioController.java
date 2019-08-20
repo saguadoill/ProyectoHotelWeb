@@ -5,6 +5,7 @@ import java.security.Principal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +23,7 @@ public class InicioController {
 	
 	@Autowired
 	HotelesService hotelesService;
-	
+
 	@RequestMapping(value = "/inicio", method = RequestMethod.GET)
 	public ModelAndView paginaInicio(Principal principal,ModelAndView model) {
 		model.setViewName("inicio");
