@@ -1,8 +1,11 @@
 package com.capgemini.dtos;
 
+import com.capgemini.services.validators.impls.IClienteValidator;
+
 import lombok.Data;
 
 @Data
+@IClienteValidator
 public class ClienteDTO {
 	
 	private int id;

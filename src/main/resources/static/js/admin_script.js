@@ -1,7 +1,6 @@
 /**
  * 
  */
-
 $(document).ready(function() {
-    $('#tabla_hoteles').DataTable();
+    $("#tabla_hoteles").DataTable();
 } );

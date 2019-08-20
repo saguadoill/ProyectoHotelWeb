@@ -16,9 +16,12 @@ public class WebConfiguration implements WebMvcConfigurer{
 	 */
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/images/**", "/css/**", "/js/**", "/includes/**").addResourceLocations(
-				"classpath:/static/images/", "classpath:/static/css/", 
-				"classpath:/static/js/", "classpath:/templates/jsp/includes/");
+		registry.addResourceHandler("/images/**", "/css/**", "/js/**", "/includes/**","/admin/**").addResourceLocations(
+				"classpath:/static/images/", 
+				"classpath:/static/css/", 
+				"classpath:/static/js/", 
+				"classpath:/templates/jsp/includes/",
+				"classpath:/templates/admin/");
 	}
 	
 	@Override

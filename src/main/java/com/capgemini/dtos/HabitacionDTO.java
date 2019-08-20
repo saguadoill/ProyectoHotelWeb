@@ -14,6 +14,6 @@ public class HabitacionDTO {
 	private float precio;
 	private int personas;
 	private String estado;
-	private HotelDTO hotel; 
+	private int idHotel; 
 
 }

@@ -42,4 +42,29 @@ public class HotelesService {
 
 		return hoteles;
 	}
+	
+	public HotelDTO getHotel(int id) {
+		
+		final String baseUrl = "http://localhost:9876/hotel/"+id;
+		HotelDTO hotel = new HotelDTO();
+		URI uri;
+		try {
+			uri = new URI(baseUrl);
+			ResponseEntity<HotelDTO> resultado = restTemplate.exchange(uri, HttpMethod.GET, null,
+					new ParameterizedTypeReference<HotelDTO>() {
+					});
+
+			if (resultado.getStatusCode().equals(HttpStatus.OK)) {
+				hotel = resultado.getBody();
+			}
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return hotel;
+	}
+			
 }
+	
+
