@@ -1,20 +1,28 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
+<div th:fragment="footer">
+	<footer class="text-center">
+		<div class="container">
+			<hr>
+			<p>
+				Para estar enterado de las Ãºltimas novedades, no dudes en seguirnos
+				en nuestras redes sociales <a href="#">Facebook</a> y <a href="#">Twitter</a>
+			</p>
+		</div>
+	</footer>
 
-<footer th:fragment="footer" class="text-center">
-	<div class="container">
-		<hr>
-		<p>
-			Para estar enterado de las últimas novedades, no dudes en seguirnos
-			en nuestras redes sociales <a href="#">Facebook</a> y <a href="#">Twitter</a>
-		</p>
-
-		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-		<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-		<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-		<script th:src="@{admin_script.js}"></script>
-		
-	</div>
-</footer>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script
+		src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+	<script
+		src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  	<script th:src="@{/js/calendar_script.js}"></script>
+  	<script th:src="@{/js/datepicker.min.js}"></script>
+	
+</div>

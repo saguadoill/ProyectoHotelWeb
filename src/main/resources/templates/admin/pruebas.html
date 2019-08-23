@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:include="/admin/includes/head_admin.html::head"></div>
+<body>
+	<div th:include="/admin/includes/header_admin.html::header"></div>
+
+	<section class="m-3">
+		<div>
+			Desde: <input id="inicio" type="text" class="form-control w-75" readonly disabled> 
+			Hasta: <input id="fin" type="text" class="form-control w-75" readonly disabled>
+		</div>
+		
+		<div id="fechas" data-range="true" data-multiple-dates-separator=" - "
+			data-language="es" class="datepicker-here m-3"></div>
+
+	</section>
+
+	<div th:replace="/admin/includes/footer_admin.html::footer"></div>
+
+</body>
+</html>

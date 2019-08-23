@@ -1,6 +1,7 @@
 package com.capgemini.controllers;
 
 import java.net.URISyntaxException;
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,4 @@ public class HotelesController {
 		return model;
 		
 	}
-	
 }

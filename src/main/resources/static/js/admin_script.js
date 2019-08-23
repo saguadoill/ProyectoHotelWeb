@@ -1,6 +1,8 @@
 /**
  * 
  */
-$(document).ready(function() {
-    $("#tabla_hoteles").DataTable();
-} );
+$(document).click(function(e) {
+	if (!$(e.target).is('.panel-body')) {
+    	$('.collapse').collapse('hide');	    
+    }
+});

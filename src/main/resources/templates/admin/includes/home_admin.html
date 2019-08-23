@@ -1,0 +1,220 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<section th:fragment="home">
+	<ul class="nav justify-content-center mt-3">
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#Hoteles" role="button" aria-expanded="false" aria-controls="Hoteles">Hoteles</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#Habitaciones" role="button" aria-expanded="false" aria-controls="Habitaciones">Habitaciones</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#Reservas" role="button" aria-expanded="false" aria-controls="Reservas">Reservas</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#Pago" role="button" aria-expanded="false" aria-controls="Pago">Pago</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#Clientes" role="button" aria-expanded="false" aria-controls="Clientes">Clientes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#Productos" role="button" aria-expanded="false" aria-controls="Productos">Productos</a>
+        </li>
+    </ul>
+
+    <hr>
+
+    <div id="contenedorCollapsed" class="container mx-auto mt-3">
+<!-- HOTELES -->
+        <div class="collapse table-responsive" id="Hoteles" data-parent="#contenedorCollapsed">
+            <h3 class="text-center">Hoteles</h3><br>
+            <table id="tabla_hoteles" class="table table-hover">
+                <thead class="text-center">
+                    <tr>
+                        <th class="font-weight-light">Nombre</th>
+                        <th class="font-weight-light">Categoria</th>
+                        <th class="font-weight-light">Zona</th>
+                        <th class="font-weight-light">Dirección</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <th:block th:each="hotel : ${listaHoteles}">
+                        <tr id="">
+                            <td class="text-capitalize" th:text="${hotel.nombre}"></td>
+                            <td class="text-capitalize" th:text="${hotel.categoria}"></td>
+                            <td class="text-capitalize" th:text="${hotel.zona}"></td>
+                            <td class="text-capitalize" th:text="${hotel.direccion}"></td>
+                            <td class="text-center"><button class="btn btn-outline-info">Gestionar Habitaciones</button></td>
+<!--                             <td class="text-center"><button class="btn btn-outline-info" data-toggle="collapse" href="#Habitaciones" role="button" aria-expanded="false" aria-controls="Habitaciones">Gestionar Habitaciones</button></td> -->
+                        </tr>
+                    </th:block>
+                </tbody>
+            </table>
+            <hr>
+        </div>
+<!-- HABITACIONES -->
+        <div class="collapse table-responsive" id="Habitaciones"  data-parent="#contenedorCollapsed">
+            <h3 class="text-center">Habitaciones</h3><br>
+            <table id="tabla_hoteles" class="table table-bordered table-hover">
+                <thead class="text-center">
+                    <tr>
+                        <th></th>
+                        <th class="font-weight-light">Id</th>
+                        <th class="font-weight-light">Piso</th>
+                        <th class="font-weight-light">Número</th>
+                        <th class="font-weight-light">Vista</th>
+                        <th class="font-weight-light">Clase</th>
+                        <th class="font-weight-light">Camas</th>
+                        <th class="font-weight-light">Precio</th>
+                        <th class="font-weight-light">Personas</th>
+                        <th class="font-weight-light">Disponibilidad</th>
+                        <th class="font-weight-light">Hotel Id</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <th:block th:each="habitacion : ${listaHabitaciones}">
+                    <tr>
+                        <td><input class="custom-control-input" type="checkbox" value="" id="defaultCheck1"></td>
+                        <td class="text-capitalize" th:text="*{habitacion.id}"></td>
+                        <td class="text-capitalize" th:text="*{habitacion.piso}"></td>
+                        <td class="text-capitalize" th:text="*{habitacion.numero}"></td>
+                        <td class="text-capitalize" th:text="*{habitacion.vista}"></td>
+                        <td class="text-capitalize" th:text="*{habitacion.clase}"></td>
+                        <td class="text-capitalize" th:text="*{habitacion.camas}"></td>
+                        <td class="text-capitalize" th:text="*{habitacion.precio}"></td>
+                        <td class="text-capitalize" th:text="*{habitacion.personas}"></td>
+                        <td class="text-capitalize" th:text="*{habitacion.estado}"></td>
+                        <td class="text-capitalize" th:text="*{habitacion.idHotel}"></td>
+                    </tr>
+                    </th:block>
+                </tbody>
+            </table>
+
+            <select class="custom-select">
+                <option selected>Selecciona una opción</option>
+                <option value="1">Libre</option>
+                <option value="2">Ocupada</option>
+                <option value="3">Pagada</option>
+                <option value="4">Disponible</option>
+                <option value="5">No disponible</option>
+            </select>
+            <button class="btn btn-outline-success">Aceptar</button>
+            <hr>
+        </div>
+<!-- RESERVAS -->
+        <div class="collapse table-responsive" id="Reservas"  data-parent="#contenedorCollapsed">
+            <h3 class="text-center">Reservas</h3><br>
+            <table id="tabla_hoteles" class="table table-hover">
+                <thead class="text-center">
+                    <tr>
+                        <th class="font-weight-light">Id Cliente</th>
+                        <th class="font-weight-light">Id Haabitación</th>
+                        <th class="font-weight-light">Fecha de reserva</th>
+                        <th class="font-weight-light">Fecha inicio</th>
+                        <th class="font-weight-light">Fecha fin</th>
+                        <th class="font-weight-light">Coste alojamiendo</th>
+                        <th class="font-weight-light">Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+<!--                     <th:block th:each="reserva : ${listaReservas}"> -->
+<!--                         <tr> -->
+<!--                             <td class="text-capitalize" th:text="${hotel.nombre}"></td> -->
+<!--                             <td class="text-capitalize" th:text="${hotel.categoria}"></td> -->
+<!--                             <td class="text-capitalize" th:text="${hotel.zona}"></td> -->
+<!--                             <td class="text-capitalize" th:text="${hotel.direccion}"></td> -->
+<!--                             <td></td> -->
+<!--                             <td></td> -->
+<!--                             <td></td> -->
+<!--                         </tr> -->
+<!--                     </th:block> -->
+                </tbody>
+            </table>
+            <hr>
+        </div>
+<!-- PAGOS -->
+        <div class="collapse table-responsive" id="Pago"  data-parent="#contenedorCollapsed">
+            <h3 class="text-center">Pagos</h3><br>
+            <table id="tabla_hoteles" class="table table-hover">
+                <thead class="text-center">
+                    <tr>
+                        <th class="font-weight-light">Id</th>
+                        <th class="font-weight-light">Id reserva</th>
+                        <th class="font-weight-light">Total</th>
+                        <th class="font-weight-light">Fecha pago</th>
+                    </tr>
+                </thead>
+                <tbody>
+<!--                     <th:block th:each="hotel : ${listaPagos}"> -->
+<!--                         <tr> -->
+<!--                             <td class="text-capitalize" th:text="${hotel.nombre}"></td> -->
+<!--                             <td class="text-capitalize" th:text="${hotel.categoria}"></td> -->
+<!--                             <td class="text-capitalize" th:text="${hotel.zona}"></td> -->
+<!--                             <td class="text-capitalize" th:text="${hotel.direccion}"></td> -->
+<!--                         </tr> -->
+<!--                     </th:block> -->
+                </tbody>
+            </table>
+            <hr>
+        </div>
+<!-- CLIENTES -->
+        <div class="collapse table-responsive" id="Clientes"  data-parent="#contenedorCollapsed">
+            <h3 class="text-center">Clientes</h3><br>
+            <table id="tabla_hoteles" class="table table-hover">
+                <thead class="text-center">
+                    <tr>
+                        <th class="font-weight-light">Id</th>
+                        <th class="font-weight-light">Dni</th>
+                        <th class="font-weight-light">Nombre</th>
+                        <th class="font-weight-light">Apellidos</th>
+                        <th class="font-weight-light">Email</th>
+                        <th class="font-weight-light">Dirección</th>
+                        <th class="font-weight-light">Código postal</th>
+                        <th class="font-weight-light">Ciudad</th>
+                        <th class="font-weight-light">Puntos</th>
+                    </tr>
+                </thead>
+                <tbody>
+<!--                     <th:block th:each="hotel : ${listaClientes}"> -->
+<!--                         <tr> -->
+<!--                             <td class="text-capitalize" th:text="${hotel.nombre}"></td> -->
+<!--                             <td class="text-capitalize" th:text="${hotel.categoria}"></td> -->
+<!--                             <td class="text-capitalize" th:text="${hotel.zona}"></td> -->
+<!--                             <td class="text-capitalize" th:text="${hotel.direccion}"></td> -->
+<!--                             <td></td> -->
+<!--                             <td></td> -->
+<!--                             <td></td> -->
+<!--                             <td></td> -->
+<!--                             <td></td> -->
+<!--                         </tr> -->
+<!--                     </th:block> -->
+                </tbody>
+            </table>
+            <hr>
+        </div>
+<!-- PRODUCTOS -->
+        <div class="collapse table-responsive" id="Productos" data-parent="#contenedorCollapsed">
+            <h3 class="text-center">Productos</h3><br>
+            <table id="tabla_hoteles" class="table table-hover">
+                <thead class="text-center">
+                    <tr>
+                        <th class="font-weight-light">Id</th>
+                        <th class="font-weight-light">Descripción</th>
+                        <th class="font-weight-light">Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <th:block th:each="hotel : ${listaProductos}">
+                        <tr>
+                            <td class="text-capitalize" th:text="${hotel.nombre}"></td>
+                            <td class="text-capitalize" th:text="${hotel.categoria}"></td>
+                            <td class="text-capitalize" th:text="${hotel.zona}"></td>
+                        </tr>
+                    </th:block>
+                </tbody>
+            </table>
+            <hr>
+        </div>
+    </div>
+</section>
+</html>

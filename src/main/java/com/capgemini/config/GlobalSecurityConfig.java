@@ -24,7 +24,7 @@ public class GlobalSecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 
 		httpSecurity.cors().and().csrf().disable();
-		httpSecurity.authorizeRequests().antMatchers("/inicio","/login", "/admin", "/403page","/registro").permitAll();
+		httpSecurity.authorizeRequests().antMatchers("/inicio","/login", "/admin", "/403page","/registro","/hotel/**").permitAll();
 		httpSecurity.authorizeRequests().antMatchers("/admin/*").hasAuthority("ADMIN");
 		httpSecurity.authorizeRequests().antMatchers("/cliente").hasRole("USER");
 		

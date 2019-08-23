@@ -10,22 +10,33 @@
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 			<a class="navbar-brand" th:href="@{/inicio}">ReserVago</a>
 			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-				<li class="nav-item"><a class="nav-link" href="#">Hoteles</a></li>
-				<li class="nav-item"><a class="nav-link disabled" href="#">Habitaciones</a>
-				</li>
-				<li class="nav-item"><a class="nav-link disabled" href="#">Reservas</a>
-				</li>
+				<li class="nav-item"><a class="nav-link"  th:href="@{/inicio}">Hoteles</a></li>
 			</ul>
 			<!-- Button trigger modal -->
-			<div >
-				<span th:if="${usuario == null}">
-					<a th:href="@{/registro}" class="btn btn-outline-info mr-2">Registrarse</a>
-
-					<a th:href="@{/login}" class="btn btn-outline-info">Login</a>
+			<div>
+				<span th:if="${usuario == null}"> <a th:href="@{/registro}"
+					class="btn btn-outline-info mr-2">Registrarse</a> <a
+					th:href="@{/login}" class="btn btn-outline-info">Login</a>
 				</span>
-				<span th:unless="${usuario == null}" th:text="${usuario}">
-					<!--Todo lo que quieras poner una vez logado -->
-				</span>
+				<div th:unless="${usuario == null}">
+					<div class="row mr-lg-3 mt-lg-0 mt-1">
+						<div class="dropdown">
+							<button class="btn btn-secondary dropdown-toggle" type="button"
+								id="dropdownMenuButton" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false" th:text="${usuario}">
+								<!-- Nombre de usuario en th:text -->
+							</button>
+							<div class="dropdown-menu dropdown-menu-right mt-2"
+								aria-labelledby="dropdownMenuButton">
+								<a class="dropdown-item" href="#">Reservas</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="#">Cuenta</a>
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" th:href="@{/logout}">Cerrar sesion</a>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</nav>

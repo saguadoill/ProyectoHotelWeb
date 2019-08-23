@@ -23,6 +23,12 @@ public class LoginControllerSS {
 		return model;
 	}
 
-	//TODO: añadir pagina de logout, error y modificar la de acceso denegado
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public ModelAndView paginaLogout(Principal principal,ModelAndView model) {
+		model.setViewName("inicio");
+		
+		return model;
+	}
 
 }
